@@ -1,0 +1,37 @@
+{
+  "name": "nawazsarwar/panelbuilder",
+  "description": "Package for creating adminpanel in Laravel",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ModestasV",
+      "email": "info@modestasv.lt"
+    },
+    {
+      "name": "PovilasKorop",
+      "email": "povilas@laraveldaily.com"
+    },
+    {
+        "name": "Nawaz Sarwar",
+        "email": "sampark.nawaz@gmail.com"
+    }
+  ],
+  "version": "6.0.0",
+  "require": {
+    "laravel/framework": "8.*",
+    "laravelcollective/html": "^6.2",
+    "intervention/image": "^2.7",
+    "yajra/laravel-datatables-oracle": "^9.18",
+    "spatie/laravel-permission": "^5.5"
+  },
+  "classmap": [
+    "src/Controllers",
+    "src/Cache",
+    "src/Models"
+  ],
+  "autoload": {
+    "psr-4": {
+      "NawazSarwar\\PanelBuilder\\": "src/"
+    }
+  }
+}
