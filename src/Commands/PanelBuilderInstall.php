@@ -36,14 +36,19 @@ class PanelBuilderInstall extends Command
      */
     public function handle()
     {
+        // Temporary provision starts
+        $this->call('migrate:fresh');
+        putenv('APP_NAME="Panel Builder"');
+        // Temporary Provision ends
+
         // php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
         $this->info('Publishing Spatie Permission configuration.');
         $this->callSilent('vendor:publish', [
             '--provider'   => "Spatie\Permission\PermissionServiceProvider",
         ]);
 
-        $this->info('Please note: QuickAdmin requires fresh Laravel installation!');
-        $this->info('Starting installation process of QuickAdmin...');
+        $this->info('Please note: PanelBuilder requires fresh Laravel installation!');
+        $this->info('Starting installation process of PanekBuilder...');
         $this->info('1. Copying initial files');
         $this->copyInitial();
 
@@ -95,9 +100,12 @@ class PanelBuilderInstall extends Command
      */
     public function createUser()
     {
-        $data['name']     = $this->ask('Administrator name');
-        $data['email']    = $this->ask('Administrator email');
-        $data['password'] = bcrypt($this->secret('Administrator password'));
+        // $data['name']     = $this->ask('Administrator name');
+        // $data['email']    = $this->ask('Administrator email');
+        // $data['password'] = bcrypt($this->secret('Administrator password'));
+        $data['name']     = "Nawaz Sarwar";
+        $data['email']    = "sampark.nawaz@gmail.com";
+        $data['password'] = bcrypt("zaq12345");
         // $data['role_id']  = 1;
         User::create($data);
         $this->info('User has been created');
