@@ -85,14 +85,14 @@ class PanelBuilderInstall extends Command
      */
     public function createRole()
     {
-        // Role::create([
-        //     'name'          => 'Administrator',
-        //     'guard_name'    => 'web'
-        // ]);
-        // Role::create([
-        //     'name'          => 'User',
-        //     'guard_name'    => 'web'
-        // ]);
+        Role::create([
+            'name'          => 'Administrator',
+            'guard_name'    => 'web'
+        ]);
+        Role::create([
+            'name'          => 'User',
+            'guard_name'    => 'web'
+        ]);
     }
 
     /**

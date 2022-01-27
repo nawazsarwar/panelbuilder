@@ -20,7 +20,7 @@ class PanelBuilderMenuController extends Controller
 {
 
     /**
-     * Quickadmin menu list page
+     * Panelbuilder menu list page
      * @return \BladeView|bool|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
@@ -30,11 +30,11 @@ class PanelBuilderMenuController extends Controller
             ->where('parent_id', null)
             ->orderBy('position')->get();
 
-        return view('qa::menus.index', compact('menusList'));
+        return view('pb::menus.index', compact('menusList'));
     }
 
     /**
-     * Rearrange quickadmin menu items
+     * Rearrange panelbuilder menu items
      *
      * @param Request $request
      *
@@ -88,7 +88,7 @@ class PanelBuilderMenuController extends Controller
             $models[$menu->id] = Schema::getColumnListing($tableName);
         }
 
-        return view("qa::menus.createCrud",
+        return view("pb::menus.createCrud",
             compact('fieldTypes', 'fieldValidation', 'defaultValuesCbox', 'menusSelect', 'models', 'parentsSelect',
                 'roles'));
     }
@@ -197,7 +197,7 @@ class PanelBuilderMenuController extends Controller
         // Destroy our cache file
         $cache->destroy('fieldsinfo');
 
-        return redirect(config('quickadmin.route'));
+        return redirect(config('panelbuilder.route'));
     }
 
     /**
@@ -208,7 +208,7 @@ class PanelBuilderMenuController extends Controller
     {
         $roles = Role::all();
 
-        return view('qa::menus.createParent', compact('roles'));
+        return view('pb::menus.createParent', compact('roles'));
     }
 
     /**
@@ -248,7 +248,7 @@ class PanelBuilderMenuController extends Controller
         $parentsSelect = Menu::where('menu_type', 2)->pluck('title', 'id')->prepend('-- no parent --', '');
         $roles         = Role::all();
 
-        return view('qa::menus.createCustom', compact('parentsSelect', 'roles'));
+        return view('pb::menus.createCustom', compact('parentsSelect', 'roles'));
     }
 
     /**
@@ -294,7 +294,7 @@ class PanelBuilderMenuController extends Controller
         $parentsSelect = Menu::where('menu_type', 2)->pluck('title', 'id')->prepend('-- no parent --', '');
         $roles         = Role::all();
 
-        return view('qa::menus.edit', compact('menu', 'parentsSelect', 'roles'));
+        return view('pb::menus.edit', compact('menu', 'parentsSelect', 'roles'));
     }
 
     public function update(Request $request, $id)

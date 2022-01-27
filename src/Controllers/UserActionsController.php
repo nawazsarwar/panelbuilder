@@ -14,7 +14,7 @@ class UserActionsController extends Controller
      */
     public function index()
     {
-        return view('qa::logs.index');
+        return view('pb::logs.index');
     }
 
     public function table()

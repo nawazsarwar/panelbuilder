@@ -3,7 +3,7 @@
 namespace NawazSarwar\PanelBuilder;
 
 use NawazSarwar\PanelBuilder\Commands\PanelBuilderInstall;
-// use NawazSarwar\PanelBuilder\Commands\QuickAdminConfig;
+// use NawazSarwar\PanelBuilder\Commands\PanelBuilderConfig;
 use Illuminate\Support\ServiceProvider;
 
 class PanelBuilderServiceProvider extends ServiceProvider

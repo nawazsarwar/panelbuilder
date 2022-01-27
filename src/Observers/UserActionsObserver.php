@@ -3,7 +3,7 @@
 namespace NawazSarwar\PanelBuilder\Observers;
 
 use Auth;
-use Laraveldaily\Quickadmin\Models\UsersLogs;
+use NawazSarwar\PanelBuilder\Models\UsersLogs;
 
 class UserActionsObserver
 {

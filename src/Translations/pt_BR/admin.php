@@ -5,16 +5,16 @@ return [
   'dashboard-title' => 'Seja Bem vindo ao Painel de Controle do seu projeto',
 
   // partials-header
-  'partials-header-title' => 'QuickAdmin pt_BR',
+  'partials-header-title' => 'PanelBuilder pt_BR',
 
   // admin-partials-sidebar
   'partials-sidebar-menu' => 'Menu',
-  'partials-sidebar-users' => 'Usuários',  
+  'partials-sidebar-users' => 'Usuários',
   'partials-sidebar-user-actions' => 'Ações dos Usuários',
   'partials-sidebar-logout' => 'Desconectar',
 
   // admin-partials-topbar
-  'partials-topbar-title' => 'QuickAdmin pt_BR',
+  'partials-topbar-title' => 'PanelBuilder pt_BR',
 
   // users-create
   'users-create-create_user' => 'Inclusão de Usuário',
@@ -25,7 +25,7 @@ return [
   'users-create-password' => 'Senha',
   'users-create-password_placeholder' => 'Senha',
   'users-create-role' => 'Papel',
-  'users-create-btncreate' => 'Incluir',  
+  'users-create-btncreate' => 'Incluir',
 
   // users-edit
   'users-edit-edit_user' => 'Alteração de Usuário',
@@ -36,10 +36,10 @@ return [
   'users-edit-password' => 'Senha',
   'users-edit-password_placeholder' => 'Senha',
   'users-edit-role' => 'Papel',
-  'users-edit-btnupdate' => 'Alterar',  
+  'users-edit-btnupdate' => 'Alterar',
 
   // users-index
-  'users-index-add_new' => 'Incluir',  
+  'users-index-add_new' => 'Incluir',
   'users-index-users_list' => 'Lista de Usuários',
   'users-index-name' => 'Nome',
   'users-index-edit' => 'Editar',
@@ -49,7 +49,7 @@ return [
 
   // users-controller
   'users-controller-successfully_created' => 'Usuário foi criado com êxito!',
-  'users-controller-successfully_updated' => 'Usuário foi atualizado com sucesso !',  
-  'users-controller-successfully_deleted' => 'Usuário foi excluído com sucesso!',   
+  'users-controller-successfully_updated' => 'Usuário foi atualizado com sucesso !',
+  'users-controller-successfully_deleted' => 'Usuário foi excluído com sucesso!',
 
 ];

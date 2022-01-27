@@ -2,7 +2,7 @@
 
 namespace NawazSarwar\PanelBuilder\Events;
 
-use Laraveldaily\Quickadmin\Models\UsersLogs;
+use NawazSarwar\PanelBuilder\Models\UsersLogs;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;

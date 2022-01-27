@@ -1,6 +1,6 @@
 <?php
 /**
- * Laraveldaily/Quickadmin package configuration file.
+ * Laraveldaily/Panelbuilder package configuration file.
  */
 return [
 
@@ -13,7 +13,7 @@ return [
     'time_format_jquery' => 'HH:mm:ss',
 
     /**
-     * Quickadmin settings
+     * Panelbuilder settings
      */
     // Default route
     'route'              => 'admin',
@@ -26,7 +26,7 @@ return [
     'defaultRole'        => 1,
 
     // If set to true, you'll need to copy the routes
-    // from vendor/laraveldaily/quickadmin/src/routes.php into your own /routes folder
+    // from vendor/nawazsarwar/panelbuilder/src/routes.php into your own /routes folder
     'standaloneRoutes'   => false,
 
     // Used to define relationship with UserLogs

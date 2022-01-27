@@ -34,7 +34,7 @@ class Menu extends Model
      */
     public function children()
     {
-        return $this->hasMany('Laraveldaily\Quickadmin\Models\Menu', 'parent_id', 'id')->orderBy('position');
+        return $this->hasMany('NawazSarwar\PanelBuilder\Models\Menu', 'parent_id', 'id')->orderBy('position');
     }
 
     public function roles()

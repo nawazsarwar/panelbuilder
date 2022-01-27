@@ -37,7 +37,7 @@ trait AdminPermissionsTrait
             'actions'
         ];
         if (in_array($route[0], $official)) {
-            return [$role, config('quickadmin.defaultRole')];
+            return [$role, config('panelbuilder.defaultRole')];
         } else {
             $menuName = $route[1];
         }

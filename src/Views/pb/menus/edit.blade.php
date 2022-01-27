@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-sm-10 col-sm-offset-2">
-            <h1>{{ trans('quickadmin::qa.menus-edit-edit_menu_information') }}</h1>
+            <h1>{{ trans('panelbuilder::qa.menus-edit-edit_menu_information') }}</h1>
 
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -22,7 +22,7 @@
 
     @if($menu->menu_type != 2)
         <div class="form-group">
-            {!! Form::label('parent_id', trans('quickadmin::qa.menus-edit-parent'), ['class'=>'col-sm-2 control-label']) !!}
+            {!! Form::label('parent_id', trans('panelbuilder::qa.menus-edit-parent'), ['class'=>'col-sm-2 control-label']) !!}
             <div class="col-sm-10">
                 {!! Form::select('parent_id', $parentsSelect, old('parent_id', $menu->parent_id), ['class'=>'form-control']) !!}
             </div>
@@ -30,14 +30,14 @@
     @endif
 
     <div class="form-group">
-        {!! Form::label('title', trans('quickadmin::qa.menus-edit-title'), ['class'=>'col-sm-2 control-label']) !!}
+        {!! Form::label('title', trans('panelbuilder::qa.menus-edit-title'), ['class'=>'col-sm-2 control-label']) !!}
         <div class="col-sm-10">
-            {!! Form::text('title', old('title',$menu->title), ['class'=>'form-control', 'placeholder'=> trans('quickadmin::qa.menus-edit-title_placeholder')]) !!}
+            {!! Form::text('title', old('title',$menu->title), ['class'=>'form-control', 'placeholder'=> trans('panelbuilder::qa.menus-edit-title_placeholder')]) !!}
         </div>
     </div>
 
     <div class="form-group">
-        {!! Form::label('roles', trans('quickadmin::qa.menus-edit-roles'), ['class'=>'col-sm-2 control-label']) !!}
+        {!! Form::label('roles', trans('panelbuilder::qa.menus-edit-roles'), ['class'=>'col-sm-2 control-label']) !!}
         <div class="col-sm-10">
             @foreach($roles as $role)
                 <div>
@@ -51,15 +51,15 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('icon', trans('quickadmin::qa.menus-edit-icon'), ['class'=>'col-sm-2 control-label']) !!}
+        {!! Form::label('icon', trans('panelbuilder::qa.menus-edit-icon'), ['class'=>'col-sm-2 control-label']) !!}
         <div class="col-sm-10">
-            {!! Form::text('icon', old('icon',$menu->icon), ['class'=>'form-control', 'placeholder'=> trans('quickadmin::qa.menus-edit-icon_placeholder')]) !!}
+            {!! Form::text('icon', old('icon',$menu->icon), ['class'=>'form-control', 'placeholder'=> trans('panelbuilder::qa.menus-edit-icon_placeholder')]) !!}
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-sm-10 col-sm-offset-2">
-            {!! Form::submit( trans('quickadmin::qa.menus-edit-update'), ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit( trans('panelbuilder::qa.menus-edit-update'), ['class' => 'btn btn-primary']) !!}
         </div>
     </div>
 
