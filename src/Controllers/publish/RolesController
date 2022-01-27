@@ -46,7 +46,8 @@ class RolesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->roles->create($request->only('title'));
+        // $this->roles->create($request->only('name'));
+        $this->roles->create(['name' => $request->name, 'guard_name' => 'web']);
 
         return redirect()->route('roles.index')->withMessage(trans('panelbuilder::admin.roles-controller-successfully_created'));
     }
@@ -75,7 +76,7 @@ class RolesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->roles->findOrFail($id)->update($request->only('title'));
+        $this->roles->findOrFail($id)->update($request->only('name'));
 
         return redirect()->route('roles.index')->withMessage(trans('panelbuilder::admin.roles-controller-successfully_updated'));
     }
@@ -94,4 +95,3 @@ class RolesController extends Controller
         return redirect()->route('roles.index')->withMessage(trans('panelbuilder::admin.roles-controller-successfully_deleted'));
     }
 }
-
