@@ -2,8 +2,8 @@
 namespace NawazSarwar\PanelBuilder\Builders;
 
 use Illuminate\Support\Str;
-use Laraveldaily\Quickadmin\Cache\QuickCache;
-use Laraveldaily\Quickadmin\Models\Menu;
+use NawazSarwar\PanelBuilder\Cache\QuickCache;
+use NawazSarwar\PanelBuilder\Models\Menu;
 
 class ModelBuilder
 {

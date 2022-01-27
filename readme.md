@@ -1,4 +1,4 @@
-## Panel Creator
+## Panel Builder
 
 __IMPORTANT__: This package has been updated to work with newest Laravel versions.
 
@@ -35,7 +35,7 @@ composer require nawazsarwar/panelbuilder=dev-master
 ```
 2. Add 
 ```sh
-Laraveldaily\Quickadmin\QuickadminServiceProvider::class,
+NawazSarwar\PanelBuilder\PanelBuilderServiceProvider::class,
 ```
 to your `\config\app.php` providers **after `App\Providers\RouteServiceProvider::class,`** otherwise you will not be able to add new ones to freshly generated controllers.
 
@@ -48,7 +48,7 @@ and fill the required information
 
 5. Register middleware 
 ```sh
-'role'     => \Laraveldaily\Quickadmin\Middleware\HasPermissions::class,
+'role'     => \NawazSarwar\PanelBuilder\Middleware\HasPermissions::class,
 ```
 in your `App\Http\Kernel.php` at `$routeMiddleware`
 
@@ -57,7 +57,7 @@ in your `App\Http\Kernel.php` at `$routeMiddleware`
 php artisan serve
 ```
 
-7. Access QuickAdmin panel by visiting `http://yourdomain/admin`.
+7. Access PanelBuilder by visiting `http://yourdomain/admin`.
 
 ## License
 The MIT License (MIT). Please see [License File](license.md) for more information.

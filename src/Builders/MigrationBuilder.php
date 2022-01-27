@@ -2,8 +2,8 @@
 namespace NawazSarwar\PanelBuilder\Builders;
 
 use Illuminate\Support\Str;
-use Laraveldaily\Quickadmin\Cache\QuickCache;
-use Laraveldaily\Quickadmin\Fields\FieldsDescriber;
+use NawazSarwar\PanelBuilder\Cache\QuickCache;
+use NawazSarwar\PanelBuilder\Fields\FieldsDescriber;
 
 class MigrationBuilder
 {

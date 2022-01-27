@@ -2,8 +2,8 @@
 
 namespace NawazSarwar\PanelBuilder;
 
-use NawazSarwar\PanelBuilder\Commands\QuickAdminInstall;
-use NawazSarwar\PanelBuilder\Commands\QuickAdminConfig;
+use NawazSarwar\PanelBuilder\Commands\PanelBuilderInstall;
+// use NawazSarwar\PanelBuilder\Commands\QuickAdminConfig;
 use Illuminate\Support\ServiceProvider;
 
 class PanelBuilderServiceProvider extends ServiceProvider
@@ -42,7 +42,7 @@ class PanelBuilderServiceProvider extends ServiceProvider
 
         // Register commands
         $this->app->bind('panelbuilder:install', function ($app) {
-            return new QuickAdminInstall();
+            return new PanelBuilderInstall();
         });
         $this->commands([
             'panelbuilder:install'
@@ -59,9 +59,9 @@ class PanelBuilderServiceProvider extends ServiceProvider
     public function register()
     {
         // Register main classes
-        $this->app->make('NawazSarwar\PanelBuilder\Controllers\QuickadminController');
+        $this->app->make('NawazSarwar\PanelBuilder\Controllers\PanelBuilderController');
         $this->app->make('NawazSarwar\PanelBuilder\Controllers\UserActionsController');
-        $this->app->make('NawazSarwar\PanelBuilder\Controllers\QuickadminMenuController');
+        $this->app->make('NawazSarwar\PanelBuilder\Controllers\PanelBuilderMenuController');
         $this->app->make('NawazSarwar\PanelBuilder\Cache\QuickCache');
         $this->app->make('NawazSarwar\PanelBuilder\Builders\MigrationBuilder');
         $this->app->make('NawazSarwar\PanelBuilder\Builders\ModelBuilder');

@@ -80,12 +80,14 @@ class PanelBuilderInstall extends Command
      */
     public function createRole()
     {
-        Role::create([
-            'name' => 'Administrator'
-        ]);
-        Role::create([
-            'name' => 'User'
-        ]);
+        // Role::create([
+        //     'name'          => 'Administrator',
+        //     'guard_name'    => 'web'
+        // ]);
+        // Role::create([
+        //     'name'          => 'User',
+        //     'guard_name'    => 'web'
+        // ]);
     }
 
     /**
@@ -96,7 +98,7 @@ class PanelBuilderInstall extends Command
         $data['name']     = $this->ask('Administrator name');
         $data['email']    = $this->ask('Administrator email');
         $data['password'] = bcrypt($this->secret('Administrator password'));
-        $data['role_id']  = 1;
+        // $data['role_id']  = 1;
         User::create($data);
         $this->info('User has been created');
     }

@@ -2,7 +2,7 @@
 namespace NawazSarwar\PanelBuilder\Builders;
 
 use Illuminate\Support\Str;
-use Laraveldaily\Quickadmin\Cache\QuickCache;
+use NawazSarwar\PanelBuilder\Cache\QuickCache;
 
 class RequestBuilder
 {
