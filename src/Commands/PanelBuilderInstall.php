@@ -2,7 +2,9 @@
 
 namespace NawazSarwar\PanelBuilder\Commands;
 
-use NawazSarwar\PanelBuilder\Models\Role;
+// use NawazSarwar\PanelBuilder\Models\Role;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use NawazSarwar\PanelBuilder\Models\Menu;
 use Illuminate\Console\Command;
 use App\Models\User;
@@ -41,13 +43,23 @@ class PanelBuilderInstall extends Command
         putenv('APP_NAME="Panel Builder"');
         // Temporary Provision ends
 
+        if (app()->environment(['staging', 'production'])) {
+            $this->info("\nApplication is in staging/production environment. Thankfully we hadn't started the installation process. Aborting it now!\n");
+            die();
+        }
+
+        $this->info('Please note: PanelBuilder requires fresh Laravel installation!');
+        // if (!$this->confirm('Do you wish to continue?')) {
+        //     $this->info("Thankfully we hadn't started the installation process. Aborting it now!");
+        //     die();
+        // }
+
         // php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
         $this->info('Publishing Spatie Permission configuration.');
         $this->callSilent('vendor:publish', [
             '--provider'   => "Spatie\Permission\PermissionServiceProvider",
         ]);
 
-        $this->info('Please note: PanelBuilder requires fresh Laravel installation!');
         $this->info('Starting installation process of PanekBuilder...');
         $this->info('1. Copying initial files');
         $this->copyInitial();
@@ -55,12 +67,19 @@ class PanelBuilderInstall extends Command
         $this->info('2. Running migration');
         $this->call('migrate');
 
+        $this->info('3. Creating Roles');
         $this->createRole();
 
-        $this->info('3. Create first user');
-        $this->createUser();
+        $this->info('4. Creating Permissions');
+        $this->createPermissions();
 
-        $this->info('4. Copying master template to resource\views....');
+        $this->info('5. Create first user');
+        $user = $this->createUser();
+
+        $this->info('6. Assigning privileges');
+        $this->assigningPrivileges($user);
+
+        $this->info('7. Copying master template to resource\views....');
         $this->copyMasterTemplate();
 
         $this->info('Installation was successful. Visit your_domain.com/admin to access admin panel');
@@ -78,6 +97,9 @@ class PanelBuilderInstall extends Command
         copy(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Migrations' . DIRECTORY_SEPARATOR . '2016_03_14_000000_update_menus_table', database_path('migrations' . DIRECTORY_SEPARATOR . '2016_03_14_000000_update_menus_table.php'));
         copy(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Models' . DIRECTORY_SEPARATOR . 'publish' . DIRECTORY_SEPARATOR . 'User', app_path('Models\User.php'));
         $this->info('Migrations were transferred successfully');
+
+        copy(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'welcome.blade.php', resource_path('views' . DIRECTORY_SEPARATOR . 'welcome.blade.php'));
+        $this->info('Welcome screen transferred successfully');
     }
 
     /**
@@ -87,12 +109,15 @@ class PanelBuilderInstall extends Command
     {
         Role::create([
             'name'          => 'Administrator',
-            'guard_name'    => 'web'
         ]);
         Role::create([
             'name'          => 'User',
-            'guard_name'    => 'web'
         ]);
+    }
+
+    public function createPermissions()
+    {
+        # code...$user->assignRole
     }
 
     /**
@@ -107,8 +132,14 @@ class PanelBuilderInstall extends Command
         $data['email']    = "sampark.nawaz@gmail.com";
         $data['password'] = bcrypt("zaq12345");
         // $data['role_id']  = 1;
-        User::create($data);
+        $user = User::create($data);
         $this->info('User has been created');
+        return $user;
+    }
+
+    public function assigningPrivileges($user)
+    {
+        $user->assignRole(['Administrator']);
     }
 
     /**

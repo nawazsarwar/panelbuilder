@@ -4,7 +4,8 @@
             data-keep-expanded="false"
             data-auto-scroll="true"
             data-slide-speed="200">
-            @if(Auth::user()->role_id == config('panelbuilder.defaultRole'))
+            {{-- @if(Auth::user()->role_id == config('panelbuilder.defaultRole')) --}}
+            @if(auth()->user()->hasRole('Administrator'))
                 <li @if(Request::path() == config('panelbuilder.route').'/menu') class="active" @endif>
                     <a href="{{ url(config('panelbuilder.route').'/menu') }}">
                         <i class="fa fa-list"></i>

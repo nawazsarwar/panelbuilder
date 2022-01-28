@@ -2,7 +2,8 @@
 namespace NawazSarwar\PanelBuilder\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Role;
+// use App\Models\Role;
+use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;

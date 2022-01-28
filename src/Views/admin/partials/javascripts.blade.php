@@ -27,3 +27,19 @@
     });
 
 </script>
+
+{{-- AdminLTE3 Theme files Start --}}
+    {{-- <!-- jQuery -->
+    <script src="{{ url('panelbuilder/adminlte3/plugins/jquery') }}/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="{{ url('panelbuilder/adminlte3/plugins/bootstrap/js') }}/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="{{ url('panelbuilder/adminlte3/dist/js') }}/adminlte.js"></script>
+
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="{{ url('panelbuilder/adminlte3/plugins/chart.js') }}/Chart.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="{{ url('panelbuilder/adminlte3/dist/js') }}/demo.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="{{ url('panelbuilder/adminlte3/dist/js/pages') }}/dashboard3.js"></script> --}}
+{{-- AdminLTE3 Theme files End --}}

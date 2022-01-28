@@ -17,9 +17,9 @@ class HasPermissions
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user() != null && $request->user()->permissionCan($request)) {
+        // if ($request->user() != null && $request->user()->permissionCan($request)) {
             return $next($request);
-        }
+        // }
 
         abort(403);
 

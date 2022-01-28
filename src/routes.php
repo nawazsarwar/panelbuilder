@@ -16,7 +16,8 @@ if (Schema::hasTable('menus')) {
     View::share('menus', $menus);
     if (! empty($menus)) {
         Route::group([
-            'middleware' => ['web', 'auth', 'role'],
+            // 'middleware' => ['web', 'auth', 'role'], // has old ACL implementation
+            'middleware' => ['web', 'auth'],
             'prefix'     => config('panelbuilder.route'),
             'as'         => config('panelbuilder.route') . '.',
             'namespace'  => 'App\Http\Controllers',
@@ -50,7 +51,8 @@ Route::group([
     // Dashboard home page route
     Route::get(config('panelbuilder.homeRoute'), config('panelbuilder.homeAction','PanelBuilderController@index'));
     Route::group([
-        'middleware' => 'role'
+        // 'middleware' => 'role' // has old ACL implementation
+        'middleware' => 'auth'
     ], function () {
         // Menu routing
         Route::get(config('panelbuilder.route') . '/menu', [

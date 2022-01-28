@@ -14,11 +14,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements CanResetPasswordContract, AuthorizableContract
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
-    use Authorizable, CanResetPassword, AdminPermissionsTrait;
+    use Authorizable, CanResetPassword;
+    // use AdminPermissionsTrait; // Old ACL implementation
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -50,8 +53,8 @@ class User extends Authenticatable implements CanResetPasswordContract, Authoriz
         'email_verified_at' => 'datetime',
     ];
 
-    public function role()
-    {
-        return $this->belongsTo(Role::class);
-    }
+    // public function role()
+    // {
+    //     return $this->belongsTo(Role::class);
+    // }
 }

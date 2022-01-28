@@ -22,6 +22,7 @@ return [
 
     //Default home action
     // 'homeAction' => '\App\Http\Controllers\MyOwnController@index',
+
     // Default role to access users and CRUD
     'defaultRole'        => 1,
 
