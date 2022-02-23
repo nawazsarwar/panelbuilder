@@ -18,7 +18,7 @@
   ],
   "version": "6.0.0",
   "require": {
-    "laravel/framework": "8.*",
+    "laravel/framework": "8.*|9.*",
     "laravelcollective/html": "^6.2",
     "intervention/image": "^2.7",
     "yajra/laravel-datatables-oracle": "^9.18",
